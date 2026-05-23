@@ -193,7 +193,7 @@ plt.figure(figsize=(12,6))
 
 sns.histplot(
     df['text_length'],
-    bins=30D
+    bins=30
 )
 
 plt.title("Complaint Text Length Distribution")
