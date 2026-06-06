@@ -8,23 +8,12 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 with open("models/tokenizer.pkl", "rb") as f:
     tokenizer = pickle.load(f)
 
+# Load label encoder
+with open("models/label_encoder.pkl", "rb") as f:
+    encoder = pickle.load(f)
+
 # Load model
 model = load_model("models/lstm_model.h5")
-
-# Categories
-labels = [
-    "drainage",
-    "garbage",
-    "graffiti",
-    "illegal_dumping",
-    "illegal_parking",
-    "noise",
-    "other",
-    "pothole",
-    "streetlight",
-    "water_leak",
-    "water_leakage"
-]
 
 MAX_LEN = 100
 
@@ -42,7 +31,7 @@ def predict_department(text):
 
     index = np.argmax(prediction)
 
-    return labels[index]
+    return encoder.inverse_transform([index])[0]
 
 
 if __name__ == "__main__":
