@@ -19,6 +19,11 @@ y = df["issue_type"]
 encoder = LabelEncoder()
 y = encoder.fit_transform(y)
 
+import pickle
+
+with open("models/label_encoder.pkl", "wb") as f:
+    pickle.dump(encoder, f)
+
 print("Categories:")
 print(df["issue_type"].unique())
 
@@ -40,6 +45,11 @@ tokenizer = Tokenizer(
 )
 
 tokenizer.fit_on_texts(X_train)
+
+import pickle
+
+with open("models/tokenizer.pkl", "wb") as f:
+    pickle.dump(tokenizer, f)
 
 X_train_seq = tokenizer.texts_to_sequences(X_train)
 X_test_seq = tokenizer.texts_to_sequences(X_test)
@@ -94,3 +104,7 @@ history = model.fit(
 model.save("models/lstm_model.h5")
 
 print("Model saved successfully!")
+
+loss, accuracy = model.evaluate(X_test_pad, y_test)
+
+print("Test Accuracy:", accuracy)
