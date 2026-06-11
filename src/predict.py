@@ -1,3 +1,15 @@
+import sys
+import subprocess
+
+# Force install tensorflow-cpu on the fly ONLY when the cloud runs this file
+try:
+    import tensorflow as tf
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "--no-cache-dir", "tensorflow-cpu==2.16.1"])
+    import tensorflow as tf
+
+from tensorflow.keras.models import load_model
+
 import pickle
 import numpy as np
 
