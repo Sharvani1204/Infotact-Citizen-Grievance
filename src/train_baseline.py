@@ -7,7 +7,7 @@ from src.config import RAW_DATA_PATH  # importing master paths if needed
 
 def train_baseline_models():
     print("============================================================")
-    # 1. Hamare models/ folder se fitted vectorizer load karenge
+    #loading fitted vectorizer 
     vectorizer_path = "models/vectorizer.pkl"
     if not os.path.exists(vectorizer_path):
         print(f"❌ Error: Vectorizer not found at {vectorizer_path}. Please run text vectorization first!")
@@ -17,7 +17,7 @@ def train_baseline_models():
     with open(vectorizer_path, "rb") as f:
         vectorizer = pickle.load(f)
 
-    # 2. Mocking Train-Test Data Splits (Ideally yahan validation split inputs honge)
+    # 2. Mocking Train-Test Data Splits 
     # Note: For baseline verification, loading raw data and splitting internally
     print("📊 Loading dataset and preparing matrices...")
     df = pd.read_csv(RAW_DATA_PATH, encoding='latin1')

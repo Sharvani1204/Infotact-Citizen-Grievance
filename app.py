@@ -254,7 +254,7 @@ st.markdown("""
 # ─────────────────────────────────────────────
 # Stats Row
 # ─────────────────────────────────────────────
-st.markdown("""
+st.markdown(""")
 <div class="stats">
   <div class="stat"><div class="stat-ico ic-blue">📋</div><div><div class="stat-lbl">Complaints Routed</div><div class="stat-val">24,831</div></div></div>
   <div class="stat"><div class="stat-ico ic-green">✅</div><div><div class="stat-lbl">Model Accuracy</div><div class="stat-val">94.2%</div></div></div>
@@ -373,3 +373,4 @@ st.markdown("""
   Government of India Initiative &nbsp;|&nbsp; grievance@municipal.gov.in
 </div>
 """, unsafe_allow_html=True)
+

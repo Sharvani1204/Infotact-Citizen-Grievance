@@ -9,7 +9,7 @@ def run_data_audit():
     print("🔍 STARTING AUTOMATED DATA INTEGRITY AUDIT")
     print("=" * 60)
     
-    # Check if the file exists before reading
+    # Checks if the file exists before reading
     if not os.path.exists(RAW_DATA_PATH):
         print(f"❌ Error: Raw data file not found at {RAW_DATA_PATH}")
         return
