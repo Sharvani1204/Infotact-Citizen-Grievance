@@ -1,0 +1,14 @@
+name: citizen-grievance
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - streamlit>=1.32.0
+  - pandas
+  - numpy
+  - scikit-learn
+  - gdown
+  - pip
+  - pip:
+    - tensorflow-cpu
