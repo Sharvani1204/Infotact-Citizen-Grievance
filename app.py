@@ -93,21 +93,20 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     color: #FCD34D; font-size: 10px; font-weight: 600; letter-spacing: 0.8px;
     text-transform: uppercase; padding: 3px 10px; border-radius: 4px;
 }
-.topbar-right { font-size: 11px; color: rgba(255,255,255,0.4); text-align: right; }
+.topbar-right { font-size: 11px; color: rgba(255,255,255,0.4); text-align: right; line-height: 1.4; }
 
 .hero {
     background: linear-gradient(135deg, #0A1628 0%, #0D2045 45%, #102B60 100%);
     color: white; padding: 42px 60px 38px; position: relative; overflow: hidden;
 }
 .hero h1 {
-    font-family: 'Sora', sans-serif; font-size: 38px; font-weight: 800;
-    line-height: 1.1; margin-bottom: 12px;
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: 44px; letter-spacing: -0.5px; margin-top: 15px; margin-bottom: 20px;
 }
 .hero h1 em {
     font-style: normal; background: linear-gradient(90deg, #F59E0B, #FCD34D);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-.hero-desc { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 620px; line-height: 1.6; }
+.hero-desc { font-size: 14.5px; color: rgba(255,255,255,0.7); max-width: 720px; line-height: 1.7; font-weight: 300; }
 
 .stats-wrap { background: white; border-bottom: 1px solid #E5EAF2; padding: 0 60px; }
 .stats-inner { display: flex; max-width: 1400px; margin: 0 auto; }
@@ -168,7 +167,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# Top Bar
+# Top Bar (Sourced directly from slide format)
 # ─────────────────────────────────────────────
 now = datetime.datetime.now()
 st.markdown(f"""
@@ -177,26 +176,30 @@ st.markdown(f"""
     <div class="topbar-logo">CR</div>
     <div class="topbar-brand">
       <strong>CIVICROUTE PORTAL</strong>
-      <span>Municipal Corporation of India — Integrated Real-Time System</span>
+      <span>Integrated Citizen Grievance Redressal System | Municipal Corporation of India</span>
     </div>
-    <div class="topbar-divider"></div>
-    <div class="topbar-tag">🤖 Bi-LSTM Engine Active</div>
   </div>
   <div class="topbar-right">
-    {now.strftime("%d %b %Y")} &nbsp;·&nbsp; {now.strftime("%I:%M %p IST")}
+    {now.strftime("%A, %d %B %Y")}<br>
+    {now.strftime("%I:%M %p IST")}
   </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# Hero
+# Hero (Sourced directly from slide format)
 # ─────────────────────────────────────────────
 st.markdown("""
 <div class="hero">
   <div class="hero-inner">
-    <h1>Real-Time AI Grievance <em>Routing & Tracking</em></h1>
+    <div class="hero-eyebrow" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 6px 16px; display: inline-block;">
+      <span class="hero-eyebrow-text" style="color: #F59E0B; font-size: 10px; font-weight: 700; letter-spacing: 1.5px;">⚡ AI-POWERED &nbsp;·&nbsp; BI-LSTM DEEP LEARNING</span>
+    </div>
+    <h1>Citizen Grievance Routing System</h1>
     <p class="hero-desc">
-      Submit infrastructure anomalies using plain text descriptions. Our deep-learning engine automatically manages lifecycle states, dispatch logic, and analytical monitoring.
+      Submit your civic complaint in plain language. Our NLP engine instantly identifies the 
+      responsible department and assigns an urgency priority — so your issue reaches the right team 
+      without delay.
     </p>
   </div>
 </div>
