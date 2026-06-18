@@ -123,8 +123,31 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 .fpanel-head-title { font-size: 15px; font-weight: 700; font-family: 'Sora', sans-serif; }
 .fpanel-body { padding: 24px; }
 
-.field-lbl { display: block; font-size: 11px; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; margin-top: 12px;}
+.field-lbl { display: block; font-size: 11px; font-weight: 700; color: #0A1628; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; margin-top: 4px;}
 .req { color: #EF4444; }
+
+/* ═══════════════════════════════════════════
+   HIGHLIGHTED INPUT TEXTAREA
+═══════════════════════════════════════════ */
+[data-testid="stTextArea"] textarea {
+    border: 2px solid #2563EB !important;
+    border-radius: 12px !important;
+    background: #F8FAFF !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15) !important;
+    animation: focusGlow 2.5s infinite alternate ease-in-out;
+}
+
+[data-testid="stTextArea"] textarea:focus {
+    border-color: #1D4ED8 !important;
+    background: white !important;
+    box-shadow: 0 0 0 6px rgba(29, 78, 216, 0.25) !important;
+    outline: none !important;
+}
+
+@keyframes focusGlow {
+    0% { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+    100% { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.25); }
+}
 
 .scard { background: white; border: 1px solid #E5EAF2; border-radius: 14px; padding: 20px; box-shadow: 0 2px 12px rgba(10,22,40,0.04); margin-bottom: 20px; }
 .scard-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #F0F4FA; }
@@ -219,17 +242,15 @@ with left:
           <div class="fpanel-body">
         """, unsafe_allow_html=True)
         
+        st.markdown('<span class="field-lbl">Complaint Description <span class="req">*</span></span>', unsafe_allow_html=True)
         complaint = st.text_area(
             label="Grievance Statement Input",
-            height=150,
-            placeholder="Type descriptive language regarding your issue (e.g. Sewage water is backing up into the main street road...)"
+            height=200,
+            placeholder="Type descriptive language regarding your issue (e.g. Sewage water is backing up into the main street road...)",
+            label_visibility="collapsed"
         )
         
-        # Geolocation Simulation Mock Map Module
-        st.markdown('<span class="field-lbl">Interactive Geolocation Assignment <span class="req">*</span></span>', unsafe_allow_html=True)
-        map_data = pd.DataFrame({'lat': [13.0827], 'lon': [80.2707]})
-        st.map(map_data, zoom=11, use_container_width=True)
-        
+        st.markdown('<div style="margin-top: 20px;"></div>', unsafe_allow_html=True)
         submit = st.button("🚀 Process & Dispatch Complaint", use_container_width=True)
         st.markdown("</div></div>", unsafe_allow_html=True)
 
