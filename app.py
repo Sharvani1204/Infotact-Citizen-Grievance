@@ -176,7 +176,7 @@ st.markdown(f"""
   <div class="topbar-left">
     <div class="topbar-logo">CR</div>
     <div class="topbar-brand">
-      <strong>CIVICROUTE PORTAL v2.0</strong>
+      <strong>CIVICROUTE PORTAL</strong>
       <span>Municipal Corporation of India — Integrated Real-Time System</span>
     </div>
     <div class="topbar-divider"></div>
