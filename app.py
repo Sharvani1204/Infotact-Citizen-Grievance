@@ -74,39 +74,37 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 #MainMenu, footer, header, [data-testid="stToolbar"],
 [data-testid="stDecoration"] { visibility: hidden !important; display: none !important; }
 
+/* ═══════════════════════════════════════════
+   UPPER ELEMENT TIMES NEW ROMAN OVERRIDES
+═══════════════════════════════════════════ */
+.topbar-brand, .topbar-right, .hero h1, .hero-desc, .hero-eyebrow-text {
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
 .topbar {
     background: #0A1628; color: white; padding: 0 48px; height: 56px;
     display: flex; justify-content: space-between; align-items: center;
     border-bottom: 2px solid #F59E0B; position: sticky; top: 0; z-index: 100;
 }
-.topbar-left { display: flex; align-items: center; gap: 12px; }
-.topbar-logo {
-    width: 34px; height: 34px; background: linear-gradient(135deg, #F59E0B, #EF4444);
-    border-radius: 8px; display: flex; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: 700; color: white; font-family: 'Sora', sans-serif; flex-shrink: 0;
+.topbar-left { display: flex; align-items: center; gap: 14px; }
+.topbar-logo-emoji {
+    font-size: 24px;
+    line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
 }
-.topbar-brand strong { display: block; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; font-family: 'Sora', sans-serif; }
-.topbar-brand span { font-size: 10.5px; color: rgba(255,255,255,0.45); }
-.topbar-divider { width: 1px; height: 26px; background: rgba(255,255,255,0.12); margin: 0 18px; }
-.topbar-tag {
-    background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3);
-    color: #FCD34D; font-size: 10px; font-weight: 600; letter-spacing: 0.8px;
-    text-transform: uppercase; padding: 3px 10px; border-radius: 4px;
-}
-.topbar-right { font-size: 11px; color: rgba(255,255,255,0.4); text-align: right; line-height: 1.4; }
+.topbar-brand strong { display: block; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; color: white; }
+.topbar-brand span { display: block; font-size: 11.5px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+.topbar-right { font-size: 12px; color: rgba(255,255,255,0.75); text-align: right; line-height: 1.3; font-weight: bold; }
 
 .hero {
     background: linear-gradient(135deg, #0A1628 0%, #0D2045 45%, #102B60 100%);
     color: white; padding: 42px 60px 38px; position: relative; overflow: hidden;
 }
 .hero h1 {
-    font-family: 'Inter', sans-serif; font-weight: 500; font-size: 44px; letter-spacing: -0.5px; margin-top: 15px; margin-bottom: 20px;
+    font-weight: 500; font-size: 46px; letter-spacing: -0.5px; margin-top: 15px; margin-bottom: 20px;
 }
-.hero h1 em {
-    font-style: normal; background: linear-gradient(90deg, #F59E0B, #FCD34D);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.hero-desc { font-size: 14.5px; color: rgba(255,255,255,0.7); max-width: 720px; line-height: 1.7; font-weight: 300; }
+.hero-desc { font-size: 16px; color: rgba(255,255,255,0.75); max-width: 740px; line-height: 1.6; font-weight: 400; }
 
 .stats-wrap { background: white; border-bottom: 1px solid #E5EAF2; padding: 0 60px; }
 .stats-inner { display: flex; max-width: 1400px; margin: 0 auto; }
@@ -167,13 +165,13 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# Top Bar (Sourced directly from slide format)
+# Top Bar
 # ─────────────────────────────────────────────
 now = datetime.datetime.now()
 st.markdown(f"""
 <div class="topbar">
   <div class="topbar-left">
-    <div class="topbar-logo">CR</div>
+    <div class="topbar-logo-emoji">🏛️</div>
     <div class="topbar-brand">
       <strong>CIVICROUTE PORTAL</strong>
       <span>Integrated Citizen Grievance Redressal System | Municipal Corporation of India</span>
@@ -187,7 +185,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# Hero (Sourced directly from slide format)
+# Hero
 # ─────────────────────────────────────────────
 st.markdown("""
 <div class="hero">
