@@ -134,7 +134,6 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 .ai-card { background: linear-gradient(135deg, #0A1628, #0D2045); border-radius: 14px; padding: 20px; color: white; margin-bottom: 20px; }
 .ai-accuracy { font-size: 36px; font-weight: 800; font-family: 'Sora', sans-serif; }
 
-/* Custom Tracking UI Classes */
 .track-step-container { display: flex; justify-content: space-between; margin-top: 15px; background: #F8FAFC; padding: 12px; border-radius: 8px; border: 1px solid #E2E8F0; }
 .track-node { text-align: center; font-size: 11px; font-weight: 600; color: #94A3B8; }
 .track-node.active { color: #1D4ED8; font-weight: 700; }
@@ -174,8 +173,7 @@ st.markdown("""
   <div class="hero-inner">
     <h1>Real-Time AI Grievance <em>Routing & Tracking</em></h1>
     <p class="hero-desc">
-      Submit infrastructure anomalies using plain text description and media verification. 
-      Our deep-learning engine automatically manages lifecycle states, dispatch logic, and analytical monitoring.
+      Submit infrastructure anomalies using plain text descriptions. Our deep-learning engine automatically manages lifecycle states, dispatch logic, and analytical monitoring.
     </p>
   </div>
 </div>
@@ -211,7 +209,6 @@ st.markdown('<div class="body-wrap">', unsafe_allow_html=True)
 left, right = st.columns([2.6, 1.4], gap="large")
 
 with left:
-    # Interactive Work Modes to maximize display capabilities
     mode = st.tabs(["📝 File New Grievance", "🔍 Real-Time Ticket Tracker"])
     
     # ── TAB 1: SUBMISSION ENGINE ──
@@ -224,22 +221,15 @@ with left:
         
         complaint = st.text_area(
             label="Grievance Statement Input",
-            height=130,
+            height=150,
             placeholder="Type descriptive language regarding your issue (e.g. Sewage water is backing up into the main street road...)"
         )
         
         # Geolocation Simulation Mock Map Module
         st.markdown('<span class="field-lbl">Interactive Geolocation Assignment <span class="req">*</span></span>', unsafe_allow_html=True)
-        # Coordinates for Chennai Center
         map_data = pd.DataFrame({'lat': [13.0827], 'lon': [80.2707]})
         st.map(map_data, zoom=11, use_container_width=True)
         
-        # Real-time Image/Media Validation Section
-        st.markdown('<span class="field-lbl">Upload Incident Proof Photo (Optional Extension)</span>', unsafe_allow_html=True)
-        uploaded_file = st.file_uploader("Choose file", type=["jpg", "jpeg", "png"], label_visibility="collapsed")
-        if uploaded_file:
-            st.success("✅ Media attached successfully. Running validation arrays...")
-            
         submit = st.button("🚀 Process & Dispatch Complaint", use_container_width=True)
         st.markdown("</div></div>", unsafe_allow_html=True)
 
@@ -283,7 +273,6 @@ with left:
                   </div>
                 </div>
                 """, unsafe_allow_html=True)
-                st.balloons()
 
     # ── TAB 2: REAL-TIME TRACKING SUITE ──
     with mode[1]:
@@ -307,7 +296,6 @@ with left:
                 </div>
                 """, unsafe_allow_html=True)
                 
-                # Live Linear Step Sequence Progress Bar Simulation
                 status = matched_ticket["status"]
                 s1, s2, s3 = ("active", "", "") if status == "Assigned" else (("active", "active", "") if status == "Dispatched" else ("active", "active", "active"))
                 
@@ -321,7 +309,7 @@ with left:
             else:
                 st.error("No active tracking metrics found matches that reference criteria.")
         else:
-            st.info("💡 Input an generated ticket ID string above to preview state changes in real-time context loops.")
+            st.info("💡 Input a generated ticket ID string above to preview state changes in real-time context loops.")
         st.markdown("</div></div>", unsafe_allow_html=True)
 
 with right:
@@ -337,7 +325,7 @@ with right:
     </div>
     """, unsafe_allow_html=True)
 
-    # LIVE DATA VISUALIZATION CHART (Highly valued during evaluation)
+    # LIVE DATA VISUALIZATION CHART
     st.markdown("""
     <div class="scard">
       <div class="scard-head">
@@ -346,7 +334,6 @@ with right:
       </div>
     """, unsafe_allow_html=True)
     
-    # Render interactive distribution tracking metrics
     chart_data = pd.DataFrame(
         np.random.randint(10, 50, size=(10, 1)),
         index=['Water', 'Roads', 'Sewage', 'Trash', 'Light', 'Parking', 'Noise', 'Enforce', 'Graffiti', 'General'],
